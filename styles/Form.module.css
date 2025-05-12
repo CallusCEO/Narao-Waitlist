@@ -1,0 +1,198 @@
+@keyframes text-color {
+	0% {
+		background-position: 0%;
+	}
+	50% {
+		background-position: 100%;
+	}
+	100% {
+		background-position: 0%;
+	}
+}
+
+.container {
+	position: relative;
+	overflow: hidden;
+	width: clamp(300px, 80vw, 850px);
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	border-radius: 15px;
+	padding: 24px;
+	border: 1px solid #222;
+	background-image: linear-gradient(160deg, rgb(255, 255, 227, 0.5), #ffffe3, rgb(255, 255, 227, 0.5));
+	background-size: 300%;
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+	transition: box-shadow 0.3s ease;
+	animation: text-color 3s ease alternate infinite;
+}
+
+.container:focus-within {
+	box-shadow: 8px 8px 0px rgba(0, 0, 0, 1);
+}
+
+.title {
+	color: var(--primary);
+	font-size: 1.5rem;
+	margin-bottom: 12px;
+	padding-bottom: 16px;
+	width: 100%;
+	border-bottom: 1px solid #222;
+}
+
+.innerContainer {
+	width: 100%;
+}
+
+.textarea {
+	padding: 8px 16px;
+	font-family: var(--font-red-hat);
+	font-size: 1rem;
+	background-color: var(--secondary);
+	border-radius: 10px;
+	resize: none;
+	border: #222 solid 1px;
+	color: var(--primary);
+	min-height: calc(1rem + 24px);
+	width: 100%;
+	max-width: 340px;
+
+	field-sizing: content;
+	min-width: 70%;
+	height: auto;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.textarea:focus {
+	outline: none;
+}
+
+.textarea::-webkit-scrollbar {
+	width: 8px; /* Width of the scrollbar */
+}
+
+.textarea::-webkit-scrollbar-track {
+	background: #3b3b3b5b; /* Background color of the scrollbar track */
+	border-radius: 10px;
+	margin: 15px 0px;
+}
+
+.textarea::-webkit-scrollbar-thumb {
+	background: #333; /* Scrollbar color */
+	border-radius: 10px;
+	min-height: 20px;
+}
+
+.textarea::-webkit-scrollbar-thumb:hover {
+	background: #555; /* Color when hovered */
+}
+
+.select {
+	-webkit-appearance: none; /* Remove default arrow in Safari */
+	-moz-appearance: none; /* Remove default arrow in Firefox */
+	appearance: none; /* Remove default arrow */
+	padding: 8px 16px;
+	font-family: var(--font-red-hat);
+	font-size: 1rem;
+	background-color: var(--secondary);
+	border-radius: 10px;
+	border: #222 solid 1px;
+	color: var(--primary);
+	width: 100%;
+	min-height: calc(1rem + 24px);
+	height: auto;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.select:focus {
+	outline: none;
+}
+
+.selectContainer {
+	width: 100%;
+	max-width: 340px;
+	position: relative;
+}
+
+.arrow {
+	position: absolute;
+	top: 50%;
+	right: 16px;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
+.subtitle {
+	margin-bottom: 4px;
+	color: var(--primary);
+	font-weight: 600;
+	font-size: 1rem;
+	text-align: center;
+}
+
+.nameContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	margin-bottom: 12px;
+	padding: 8px 16px;
+}
+
+.emailContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	margin-bottom: 12px;
+	padding: 8px 16px;
+}
+
+.note {
+	margin-top: 4px;
+	color: #ff6666;
+	font-weight: 600;
+	font-size: 0.8rem;
+	text-align: center;
+}
+
+.submit {
+	z-index: 998;
+	color: var(--primary);
+	font-family: var(--font-red-hat);
+	font-size: 1.2rem;
+	font-weight: 500;
+	background-color: var(--ternary);
+	padding: 8px clamp(32px, 5vw, 124px);
+	border-radius: 30px;
+	white-space: nowrap;
+	transition: transform 0.1s ease, background-color 0.1s, box-shadow 0.2s ease;
+	border: #444 1px solid;
+	width: fit-content;
+	margin: 42px auto 8px auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.message {
+	margin: 8px auto 32px auto;
+	width: fit-content;
+	color: #ff6666;
+	font-weight: 600;
+	font-size: 1rem;
+	text-align: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.submit:hover {
+		background-color: rgb(255, 255, 227, 0.5);
+		transform: translateY(-2px);
+		box-shadow: 5px 5px 0px #222;
+	}
+}
