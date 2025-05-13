@@ -26,7 +26,7 @@ const Navbar = () => {
 				isScrolled ? styles.scrolled : ''
 			}`}
 		>
-			<h1 className={styles.title}>Tomorrow\'s Learning</h1>
+			<h1 className={styles.title}>Tomorrow&apos;s Learning</h1>
 			<ul className={styles.list}>
 				<li>
 					<a href='#form' className={styles.button}>
