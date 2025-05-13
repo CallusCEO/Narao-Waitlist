@@ -48,7 +48,6 @@ const Form = () => {
 
 		try {
 			const response = await fetch('/api/waitlist', {
-				// <-- This is how you use the route
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -65,11 +64,13 @@ const Form = () => {
 				setName('');
 				setStatus('student');
 			} else {
-				setMessage(`Error: ${data.error || 'Something went wrong.'}`);
+				setMessage(
+					'An error was encountered while saving your registration. Please try again (you may have already registered).'
+				);
 			}
 		} catch (error) {
 			console.error('Fetch error:', error);
-			setMessage('An error occurred while submitting.');
+			setMessage('An error occurred while submitting. Please try again.');
 		}
 	};
 

@@ -26,15 +26,15 @@ const Navbar = () => {
 				isScrolled ? styles.scrolled : ''
 			}`}
 		>
-			<h1 className={styles.title}>The Future of Learning</h1>
+			<h1 className={styles.title}>Tomorrow's Learning</h1>
 			<ul className={styles.list}>
 				<li>
-					<a href='#' className={styles.button}>
-						Sign up
+					<a href='#form' className={styles.button}>
+						Join Waitlist
 					</a>
 				</li>
 				<li>
-					<a href='#' className={styles.buttonAlt}>
+					<a href='#about' className={styles.buttonAlt}>
 						About
 					</a>
 				</li>

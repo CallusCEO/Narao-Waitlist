@@ -1,0 +1,70 @@
+.containerAbove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 64px;
+    padding-bottom: 8px;
+
+    p {
+        margin-left: clamp(8px, 2vw, 16px);
+        font-family: var(--font-forum);
+        font-size: clamp(1.4rem, 2vw, 3rem);
+        color: var(--secondary);
+        text-align: center;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 0;
+    color: white;
+}
+
+.rule {
+	background-color: #222;
+	width: clamp(364px, 80%, 564px);
+	height: 1px;
+	margin: 16px auto 8px;
+}
+
+.iconContainer {
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 32px
+}
+
+.xIcon {
+    width: clamp(48px, 3vw, 64px);
+    height: clamp(48px, 3vw, 64px);
+    background-color: var(--ternary);
+    mask-image: url("/images/xLogo.png");
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    transition: transform 0.2s ease;
+}
+
+.emailIcon {
+    width: clamp(48px, 3vw, 64px);
+    height: clamp(48px, 3vw, 64px);
+    background-color: var(--ternary);
+    mask-image: url("/images/email.png");
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .xIcon:hover,
+    .emailIcon:hover {
+        transform: scale(1.05);
+        background-color: rgb(255, 255, 227, 0.5);
+    }
+}

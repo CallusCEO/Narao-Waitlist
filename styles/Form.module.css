@@ -13,7 +13,7 @@
 .container {
 	position: relative;
 	overflow: hidden;
-	width: clamp(300px, 80vw, 850px);
+	width: clamp(300px, 90vw, 850px);
 	height: auto;
 	display: flex;
 	flex-direction: column;
@@ -34,8 +34,11 @@
 }
 
 .title {
+	letter-spacing: 2px;
+	word-spacing: 2px;
+	font-family: var(--font-forum);
+	font-size: 1.8rem;
 	color: var(--primary);
-	font-size: 1.5rem;
 	margin-bottom: 12px;
 	padding-bottom: 16px;
 	width: 100%;
