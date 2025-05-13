@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Red_Hat_Text, Forum } from 'next/font/google';
+import { Red_Hat_Text, Forum } from 'next/font/google';
 import '@/styles/globals.css';
 
 const redHat = Red_Hat_Text({
@@ -38,7 +38,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${redHat.variable} ${forum.variable}`}>{children}</body>
+			<body className={`${redHat.variable} ${forum.variable}`}>
+				{children}
+			</body>
 		</html>
 	);
 }

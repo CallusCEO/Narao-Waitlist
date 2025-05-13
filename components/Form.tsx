@@ -7,12 +7,6 @@ import Image from 'next/image';
 type Status = 'student' | 'professional' | 'retired' | 'other';
 type Email = string;
 
-interface SubmitProps {
-	name: string;
-	email: Email;
-	status: Status;
-}
-
 const Form = () => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState<Email>('');
@@ -29,14 +23,14 @@ const Form = () => {
 		return true;
 	};
 
-	interface HandleSubmitEvent extends React.FormEvent<HTMLFormElement> {}
-
 	interface ApiResponse {
 		message?: string;
 		error?: string;
 	}
 
-	const handleSubmit = async (event: HandleSubmitEvent): Promise<void> => {
+	const handleSubmit = async (
+		event: React.FormEvent<HTMLFormElement>
+	): Promise<void> => {
 		event.preventDefault(); // Prevent the default form submission
 		if (!email || !name || !status) {
 			setMessage('Please fill in all fields correctly.');

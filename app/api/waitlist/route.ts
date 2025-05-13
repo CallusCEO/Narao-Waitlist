@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     return new Response(JSON.stringify({ error: 'Name is required' }), { status: 400 });
   }
 
-  const { data, error } = await supabase
+  const { error } = await supabase
     .from('waiting_list')
     .insert([
       { 
