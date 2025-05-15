@@ -24,11 +24,6 @@ const Form = () => {
 		return true;
 	};
 
-	interface ApiResponse {
-		message?: string;
-		error?: string;
-	}
-
 	const handleSubmit = async (
 		event: React.FormEvent<HTMLFormElement>
 	): Promise<void> => {
