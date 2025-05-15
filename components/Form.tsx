@@ -12,6 +12,7 @@ const Form = () => {
 	const [email, setEmail] = useState<Email>('');
 	const [status, setStatus] = useState<Status>('student');
 	const [message, setMessage] = useState('');
+	const [isSent, toggleSent] = useState(false);
 
 	const handleEmail = (email: Email) => {
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -40,6 +41,8 @@ const Form = () => {
 			return; // Stop if the email is invalid
 		}
 
+		toggleSent(true);
+
 		try {
 			const response = await fetch('/api/waitlist', {
 				method: 'POST',
@@ -52,19 +55,17 @@ const Form = () => {
 			const data: ApiResponse = await response.json();
 
 			if (response.ok) {
-				setMessage(data.message || 'Successfully joined!');
+				setMessage(`Welcome ${name}!`);
 				// Clear form fields
 				setEmail('');
 				setName('');
 				setStatus('student');
 			} else {
-				setMessage(
-					'An error was encountered while saving your registration. Please try again (you may have already registered).'
-				);
+				setMessage("Oops, haven't you already signed in?");
 			}
 		} catch (error) {
 			console.error('Fetch error:', error);
-			setMessage('An error occurred while submitting. Please try again.');
+			setMessage('Oops!');
 		}
 	};
 
@@ -72,7 +73,10 @@ const Form = () => {
 		<div className={styles.container}>
 			<h1 className={styles.title}>Join the Waitlist</h1>
 
-			<div className={styles.innerContainer}>
+			<div
+				className={styles.innerContainer}
+				style={{ pointerEvents: isSent ? 'none' : 'auto' }}
+			>
 				<div className={styles.nameContainer}>
 					<h3 className={styles.subtitle}>Name</h3>
 					<textarea
@@ -141,7 +145,6 @@ const Form = () => {
 						/>
 					</button>
 				</form>
-				<p className={styles.message}>{message || null}</p>
 			</div>
 			<Image
 				src={'/images/file.png'}
@@ -157,6 +160,45 @@ const Form = () => {
 					zIndex: -1,
 				}}
 			/>
+			{isSent && (
+				<div className={styles.loadingContainer}>
+					{message ? (
+						<>
+							<p
+								className={`${styles.message} ${
+									message.includes('Oops') &&
+									styles.messageError
+								}`}
+							>
+								{message}
+							</p>
+							<p className={styles.messageAlt}>
+								{message.includes('Welcome')
+									? 'You were successfully signed in.'
+									: 'An error occured while signing you in'}
+							</p>
+							<button
+								className={styles.buttonLoading}
+								onClick={() => toggleSent(false)}
+							>
+								<Image
+									width={16}
+									height={16}
+									src={'/images/close.png'}
+									alt='Close'
+								/>
+							</button>
+						</>
+					) : (
+						<>
+							<div className={styles.loadingCircle}></div>
+							<p className={styles.messageLoading}>
+								Signing you in...
+							</p>
+						</>
+					)}
+				</div>
+			)}
 		</div>
 	);
 };

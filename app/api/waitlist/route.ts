@@ -26,5 +26,5 @@ export async function POST(request: Request) {
     return new Response(JSON.stringify({ error: error.message }), { status: 500 });
   }
 
-  return new Response(JSON.stringify({ message: 'Successfully joined the waiting list!' }), { status: 200 });
+  return new Response(JSON.stringify({ message: `Welcome ${name}!` }), { status: 200 });
 }

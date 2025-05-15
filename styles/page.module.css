@@ -22,6 +22,19 @@
 	}
 }
 
+@keyframes hue-rotate {
+	0% {
+		filter: hue-rotate(0deg);
+	}
+	50% {
+		filter: hue-rotate(180deg);
+	}
+	100% {
+		filter: hue-rotate(360deg);
+	}
+}
+
+
 .page {
 	min-height: 200vh;
 	background: 10100E;
@@ -62,8 +75,13 @@
 		letter-spacing: 2px;
 		word-spacing: 2px;
 		font-size: clamp(1.4rem, 2vw, 3rem);
-		color: #222;
+		color: transparent;
 		margin-bottom: 64px;
+
+		background-image: linear-gradient(55deg, #6fc2fa, #00bbff, #91c7fa);
+		background-size: 300%;
+		animation: text-color 3s ease alternate infinite, hue-rotate 5s ease infinite;
+		background-clip: text;
 	}
 }
 
@@ -139,7 +157,7 @@
 }
 
 .infoVisible {
-	animation: enter 1s ease forwards;
+	animation: enter 1s ease forwards, text-color 3s ease alternate infinite;
 }
 
 @media (hover: hover) and (pointer: fine) {
