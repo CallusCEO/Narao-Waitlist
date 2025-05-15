@@ -52,8 +52,6 @@ const Form = () => {
 				body: JSON.stringify({ email, name, status }),
 			});
 
-			const data: ApiResponse = await response.json();
-
 			if (response.ok) {
 				setMessage(`Welcome ${name}!`);
 				// Clear form fields
